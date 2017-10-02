@@ -1,0 +1,84 @@
+MTU 1500
+
+Sending udp packets from 2 threads, tun read 1 thread synchronous
+
+packet size 500
+	speed 103 MB/s
+	197 376 Pkg/s
+
+packet size 1000
+	speed 200 MB/s
+	200 769 Pkg/s
+
+packet size 2000
+	speed 202 MB/s
+	201 856 Pkg/s
+	
+packet size 5000
+	speed 242 MB/s
+	195 277 Pkg/s
+	
+packet size 10000
+	speed 286 MB/s
+	203 291 Pkg/s
+	
+packet size 650000
+	speed 276 MB/s
+	193 949 Pkg/s
+	
+
+
+Sending udp packets from 2 threads, tun read 1 thread asynchronous (ioservice.run() called 1 time)
+
+packet size 500
+	speed 141 MB/s
+	263 686 Pkg/s
+	
+packet size 1000
+	speed 255 MB/s
+	252 141 Pkg/s
+	
+packet size 2000
+	speed 259 MB/s
+	255 477 Pkg/s
+	
+packet size 5000
+	speed 306 MB/s
+	245 720 Pkg/s
+	
+packet size 10000
+	speed 328 MB/s
+	231 004 Pkg/s
+	
+packet size 65000
+	speed 348 MB/s
+	242 271 Pkg/s
+	
+	
+	
+Sending udp packets from 2 threads, tun read 2 thread asynchronous (ioservice.run() called 2 times)
+
+packet size 500
+	speed 117 MB/s
+	218 692 Pkg/s
+	
+packet size 1000
+	speed 219 MB/s
+	217 143 Pkg/s
+	
+packet size 2000
+	speed 298 MB/s
+	293 512 Pkg
+	
+packet size 5000
+	speed 350 MB/s
+	279 499 Pkg/s
+	
+packet size 10000
+	speed 435 MB/s
+	306 083 Pkg/s
+	
+packet size 65000
+	speed 358 MB/s
+	249 374 Pkg/s
+	then exception internal buffer is full
