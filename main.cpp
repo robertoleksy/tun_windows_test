@@ -24,12 +24,13 @@ c_counter::c_counter() :
 {
 	
 	m_print_thread = std::thread([this]() {
+		const size_t wait_seconds = 10;
 		while (1) {
-			std::this_thread::sleep_for(std::chrono::seconds(1));
+			std::this_thread::sleep_for(std::chrono::seconds(wait_seconds));
 			size_t bytes = m_received_bytes.exchange(0);
 			size_t packets = m_received_number_of_packet.exchange(0);
-			std::cout << bytes << " B/s " << '\n';
-			std::cout << packets << " Pkg/s " << "\n\n" << std::endl;
+			std::cout << bytes/wait_seconds/1024/1024 << " MB/s " << '\n';
+			std::cout << packets/wait_seconds << " Pkg/s " << "\n\n" << std::endl;
 		}
 	});
 }
@@ -65,8 +66,8 @@ int main() {
 		size_t size = tuntap.read_from_tun(buff.data(), buff.size());
 		counter.add_readed_data_size(size);
 		counter.add_raceived_packet();
-	}
-	*/
+	}*/
+
 	
 	// async
 	tuntap.async_receive_from_tun(buff.data(), buff.size(), [&](const unsigned char *data, std::size_t size, const boost::system::error_code &error) {
