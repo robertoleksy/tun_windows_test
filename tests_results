@@ -97,12 +97,12 @@ packet size 500
     217 067 Pkg/s
 
 packet size 1000
-    speed 219 MB/s
-    220 082 Pkg/s
+    speed 179 MB/s
+    179 482 Pkg/s
 
 packet size 2000
-    speed 330 MB/s
-    329 072 Pkg/s
+    speed 259 MB/s
+    258 672 Pkg/s
 
 packet size 5000
     speed 524 MB/s
@@ -121,52 +121,52 @@ packet size 65000
 Sending udp packets from 2 threads, tun read 1 thread asynchronous (ioservice.run() called 1 time)
 
 packet size 500
-    speed 107 MB/s
-    206 215 Pkg/s
+    speed 101 MB/s
+    193 278 Pkg/s
 
 packet size 1000
     speed 196 MB/s
     196 698 Pkg/s
 
 packet size 2000
-    speed 280 MB/s
-    279 637 Pkg/s
+    speed 244 MB/s
+    243 788 Pkg/s
 
 packet size 5000
-    speed 452 MB/s
-    364 773 Pkg/s
+    speed 410 MB/s
+    330 694 Pkg/s
 
 packet size 10000
-    speed 634 MB/s
-    449 902 Pkg/s
+    speed 566 MB/s
+    402 077 Pkg/s
 
 packet size 65000
-    speed 741 MB/s
-    520 098 Pkg/s
+    speed 589 MB/s
+    413 512 Pkg/s
 
 
 Sending udp packets from 2 threads, tun read 2 thread asynchronous (ioservice.run() called 2 times)
 
 packet size 500
-    speed 86 MB/s
-    165 648 Pkg/s
+    speed 83 MB/s
+    160 696 Pkg/s
 
 packet size 1000
-    speed 166 MB/s
-    166 535 Pkg/s
+    speed 159 MB/s
+    159 434 Pkg/s
 
 packet size 2000
-    speed 215 MB/s
-    214 620 Pkg/s
+    speed 227 MB/s
+    226 294 Pkg/s
 
 packet size 5000
-    speed 373 MB/s
-    301 172 Pkg/s
+    speed 396 MB/s
+    319 938 Pkg/s
 
 packet size 10000
-    speed 459 MB/s
-    325 797 Pkg/s
+    speed 533 MB/s
+    378 741 Pkg/s
 
 packet size 65000
-    speed 639 MB/s
-    448 804 Pkg/s
+    speed 663 MB/s
+    465 953 Pkg/s
