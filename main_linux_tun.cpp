@@ -4,6 +4,7 @@
 #include <thread>
 #include <array>
 #include <iostream>
+#include <mutex>
 
 ////////////////////////////////////////////////
 
@@ -45,11 +46,13 @@ c_counter::~c_counter() {
 
 c_counter counter;
 c_tuntap_linux_obj tuntap;
+std::mutex tuntap_mutex;
 std::array<unsigned char, 65000> buff;
 
 void handler_read(const unsigned char *, std::size_t size, const boost::system::error_code &) {
 	counter.add_readed_data_size(size);
 	counter.add_raceived_packet();
+	std::lock_guard<std::mutex> lg(tuntap_mutex);
 	tuntap.async_receive_from_tun(buff.data(), buff.size(), handler_read);
 }
 
@@ -79,6 +82,7 @@ int main() {
 			[&]{
 				tuntap.get_asio_handle().get_io_service().run();
 			});
+
 	for (auto &thread : thread_vec)
 		thread.join();
 }

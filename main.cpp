@@ -49,6 +49,7 @@ c_counter::~c_counter() {
 
 c_counter counter;
 c_tuntap_windows_obj tuntap;
+std::mutex tuntap_mutex;
 std::array<unsigned char, 65000> buff;
 
 void handler_read(const unsigned char *, std::size_t size, const boost::system::error_code &) {
