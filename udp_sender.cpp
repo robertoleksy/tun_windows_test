@@ -26,20 +26,20 @@ int main( int size, char** args) {
 
 
 		boost::asio::io_service io_service;
-		ip::udp::socket s(io_service,  ip::udp::endpoint(ip::address_v6(), 9000));
-		ip::udp::socket s2(io_service,  ip::udp::endpoint(ip::address_v6(), 9001));
+		ip::udp::socket s(io_service,  ip::udp::endpoint(ip::address_v6(), 19000));
+		ip::udp::socket s2(io_service,  ip::udp::endpoint(ip::address_v6(), 19001));
 		std::vector<unsigned char> buff;		//tu wielkosci 500 ,1000 ,2000 ,5000 10000, 65000
 		buff.resize(packet_size);
 		//		buff.fill(0);
 		
 	auto thread_lambda = [&] {
 		while(1) {
-			s.send_to(boost::asio::buffer(buff), ip::udp::endpoint(ip::address_v6::from_string("fc9d:e6d3:bd5b:2bc4:1374:d1a:cebc:224a"), 9000));
+			s.send_to(boost::asio::buffer(buff), ip::udp::endpoint(ip::address_v6::from_string("fd11:1111:1111:1111:1111:1111:1111:1112"), 9000));
 		}
 	}; // lambda
 	auto thread_lambda2 = [&] {
 		while(1) {
-			s2.send_to(boost::asio::buffer(buff), ip::udp::endpoint(ip::address_v6::from_string("fc9d:e6d3:bd5b:2bc4:1374:d1a:cebc:224a"), 9000));
+			s2.send_to(boost::asio::buffer(buff), ip::udp::endpoint(ip::address_v6::from_string("fd11:1111:1111:1111:1111:1111:1111:1112"), 9001));
 		}
 	}; // lambda
 	std::vector<std::thread> threads;
