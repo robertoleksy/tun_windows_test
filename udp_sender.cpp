@@ -3,15 +3,34 @@
 #include <chrono>
 #include <thread>
 #include <vector>
+#include <cstdio>
+#include <vector>
 
 using namespace boost::asio;
 
-int main() {
+int main( int size, char** args) {
+
+        unsigned int packet_size = 0;
+
+	if(size == 2) {
+	        sscanf(args[1], "%d",&packet_size);
+	}else{
+	        packet_size =1500;
+	}
+	if(packet_size>9000) {
+	        std::cout<<"packet is to big"<<"\n";
+		return 0;
+	}
+
+	std::cout<<"packet size: "<<packet_size<<"\n";
+
+
 		boost::asio::io_service io_service;
 		ip::udp::socket s(io_service,  ip::udp::endpoint(ip::address_v6(), 9000));
 		ip::udp::socket s2(io_service,  ip::udp::endpoint(ip::address_v6(), 9001));
-		std::array<unsigned char, 65000> buff;
-		buff.fill(0);
+		std::vector<unsigned char> buff;		//tu wielkosci 500 ,1000 ,2000 ,5000 10000, 65000
+		buff.resize(packet_size);
+		//		buff.fill(0);
 		
 	auto thread_lambda = [&] {
 		while(1) {
@@ -30,3 +49,4 @@ int main() {
 	for (auto &thread : threads)
 		thread.join();
 }
+
