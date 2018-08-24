@@ -7,6 +7,7 @@
 #include <boost/any.hpp>
 #include <iomanip>
 #include <map>
+#include <vector>
 
 using namespace std;
 
